@@ -9,11 +9,12 @@ this.firefoxhooks = class extends ExtensionAPI {
     Services.scriptloader.loadSubScript(
       context.extension.getURL("privileged/firefoxhooks/FirefoxHooks.jsm"),
       FirefoxHooksContainer);
+    FirefoxHooksContainer.FirefoxHooks.init(context.extension);
 
     return {
       firefoxhooks: {
-        async setup() {
-          FirefoxHooksContainer.FirefoxHooks.init(context.extension);
+        async studyReady(studyInfo) {
+          await FirefoxHooksContainer.FirefoxHooks.studyReady(studyInfo);
         },
 
         onEvent: new ExtensionCommon.EventManager(

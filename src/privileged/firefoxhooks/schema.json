@@ -3,11 +3,16 @@
     "namespace": "firefoxhooks",
     "functions": [
       {
-        "name": "setup",
+        "name": "studyReady",
         "type": "function",
-        "description": "Sets up FirefoxHooks",
         "async": true,
-        "parameters": []
+        "parameters": [
+          {
+            "type": "object",
+            "name": "studyInfo",
+            "additionalProperties": true
+          }
+        ]
       }
     ],
     "events": [
