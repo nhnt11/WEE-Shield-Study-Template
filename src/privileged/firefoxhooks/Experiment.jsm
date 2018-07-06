@@ -8,7 +8,6 @@ this.Experiment = {
     if (studyInfo.isFirstRun) {
       this.setup();
     }
-    this.sendTelemetry({testPayload: true, studyInfo});
   },
 
   cleanup() {
