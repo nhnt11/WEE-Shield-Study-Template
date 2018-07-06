@@ -1,0 +1,26 @@
+[
+  {
+    "namespace": "firefoxhooks",
+    "functions": [
+      {
+        "name": "setup",
+        "type": "function",
+        "description": "Sets up FirefoxHooks",
+        "async": true,
+        "parameters": []
+      }
+    ],
+    "events": [
+      {
+        "name": "onEvent",
+        "type": "function",
+        "parameters": [
+          {
+            "type": "object",
+            "name": "payload"
+          }
+        ]
+      }
+    ]
+  }
+]

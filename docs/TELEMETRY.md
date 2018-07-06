@@ -32,19 +32,10 @@
 Events instrumented in this study:
 
 * UI
-
-  * When popups are shown:
-    * fxmonitor_alert_shown
-    * fxmonitor_survey_shown
-    * fxmonitor_survey_gratitude_shown
+  * (TODO)
 
 * Interactions
-  * When popup notification primary action is triggered: fxmonitor_alert_submit
-  * When the "Dismiss" secondary action is triggered: fxmonitor_alert_dismiss
-  * when the "Never show breach alerts" secondary action is triggered: fxmonitor_alert_dismiss_permanent
-  * When the survey popup is submitted, there's one sent for every selected checkbox: fxmonitor_survey_checkbox_<checkboxid>
-  * When the survey popup is dismissed: fxmonitor_survey_dismissed
-  * When the thank you popup is dismissed: fxmonitor_survey_gratitude_dismissed
+  * (TODO)
 
 All interactions with the UI create sequences of Telemetry Pings.
 

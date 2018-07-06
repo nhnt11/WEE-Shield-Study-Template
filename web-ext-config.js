@@ -17,8 +17,4 @@ const defaultConfig = {
   },
 };
 
-if (process.env.VARIATION_NAME) {
-  defaultConfig.run.pref.push(`extensions.fxmonitor_shield_mozilla_org.variationName=${process.env.VARIATION_NAME}`);
-}
-
 module.exports = defaultConfig;
