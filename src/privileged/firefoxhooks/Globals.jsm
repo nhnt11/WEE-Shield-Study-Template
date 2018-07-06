@@ -8,5 +8,14 @@
  * for packgaged (zip) files.
  */
 
+const GLOBAL = this;
+
 ChromeUtils.defineModuleGetter(this, "AddonManager",
                                "resource://gre/modules/AddonManager.jsm");
+
+Services.scriptloader.loadSubScript(
+  gExtension.getURL("privileged/firefoxhooks/FirefoxHooks.jsm"), GLOBAL);
+Services.scriptloader.loadSubScript(
+  gExtension.getURL("privileged/firefoxhooks/Experiment.jsm"), GLOBAL);
+
+FirefoxHooks.init();

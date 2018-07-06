@@ -5,11 +5,10 @@ ChromeUtils.defineModuleGetter(this, "ExtensionCommon",
 
 this.firefoxhooks = class extends ExtensionAPI {
   getAPI(context) {
-    let FirefoxHooksContainer = {};
+    let FirefoxHooksContainer = { gExtension: context.extension };
     Services.scriptloader.loadSubScript(
-      context.extension.getURL("privileged/firefoxhooks/FirefoxHooks.jsm"),
+      context.extension.getURL("privileged/firefoxhooks/Globals.jsm"),
       FirefoxHooksContainer);
-    FirefoxHooksContainer.FirefoxHooks.init(context.extension);
 
     return {
       firefoxhooks: {

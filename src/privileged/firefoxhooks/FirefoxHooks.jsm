@@ -1,20 +1,10 @@
-const GLOBAL = this;
-
 this.FirefoxHooks = {
-  extension: null,
-
-  init(aExtension) {
-    this.extension = aExtension;
-    Services.scriptloader.loadSubScript(
-      this.getURL("privileged/firefoxhooks/Globals.jsm"), GLOBAL);
-
+  init() {
     AddonManager.addAddonListener(this);
   },
 
-  studyReady(studyInfo) {
-    Services.scriptloader.loadSubScript(
-      this.getURL("privileged/firefoxhooks/Experiment.jsm"), GLOBAL);
-    Experiment.init(studyInfo);
+  async studyReady(studyInfo) {
+    await Experiment.init(studyInfo);
   },
 
   onUninstalling(addon) {
@@ -25,19 +15,15 @@ this.FirefoxHooks = {
     this.handleDisableOrUninstall(addon);
   },
 
-  handleDisableOrUninstall(addon) {
-    if (addon.id !== this.extension.id) {
+  async handleDisableOrUninstall(addon) {
+    if (addon.id !== gExtension.id) {
       return;
     }
-    Experiment.cleanup();
+    await Experiment.cleanup();
     AddonManager.removeAddonListener(this);
     // This is needed even for onUninstalling, because it nukes the addon
     // from UI. If we don't do this, the user has a chance to "undo".
     addon.uninstall();
-  },
-
-  getURL(aPath) {
-    return this.extension.getURL(aPath);
   },
 
   eventListeners: new Set(),
@@ -50,13 +36,13 @@ this.FirefoxHooks = {
     this.eventListeners.delete(aListener);
   },
 
-  notifyEventListeners(payload) {
+  async notifyEventListeners(payload) {
     if (typeof payload !== "object") {
       payload = { payload };
     }
 
     for (let cb of this.eventListeners) {
-      cb(payload);
+      await cb(payload);
     }
   },
 };

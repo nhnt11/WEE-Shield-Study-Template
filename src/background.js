@@ -5,7 +5,7 @@ let gEventListener = async function(payload) {
 
 async function init() {
   browser.study.onReady.addListener(async (studyInfo) => {
-    browser.firefoxhooks.onEvent.addListener(gEventListener);
+    await browser.firefoxhooks.onEvent.addListener(gEventListener);
     await browser.firefoxhooks.studyReady(studyInfo);
   });
 
