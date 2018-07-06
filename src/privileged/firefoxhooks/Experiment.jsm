@@ -8,9 +8,14 @@ this.Experiment = {
     if (studyInfo.isFirstRun) {
       this.setup();
     }
+    this.sendTelemetry({testPayload: true, studyInfo});
   },
 
   cleanup() {
     // Called when the add-on is being removed for any reason.
+  },
+
+  sendTelemetry(payload) {
+    FirefoxHooks.notifyEventListeners(payload);
   },
 };

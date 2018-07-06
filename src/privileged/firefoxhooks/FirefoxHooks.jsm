@@ -1,5 +1,4 @@
-ChromeUtils.defineModuleGetter(this, "AddonManager",
-                               "resource://gre/modules/AddonManager.jsm");
+const GLOBAL = this;
 
 this.FirefoxHooks = {
   extension: null,
@@ -7,14 +6,14 @@ this.FirefoxHooks = {
   init(aExtension) {
     this.extension = aExtension;
     Services.scriptloader.loadSubScript(
-      this.getURL("privileged/firefoxhooks/Globals.jsm"));
+      this.getURL("privileged/firefoxhooks/Globals.jsm"), GLOBAL);
 
     AddonManager.addAddonListener(this);
   },
 
   studyReady(studyInfo) {
     Services.scriptloader.loadSubScript(
-      this.getURL("privileged/firefoxhooks/Experiment.jsm"));
+      this.getURL("privileged/firefoxhooks/Experiment.jsm"), GLOBAL);
     Experiment.init(studyInfo);
   },
 

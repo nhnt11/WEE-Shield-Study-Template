@@ -22,7 +22,8 @@
         "parameters": [
           {
             "type": "object",
-            "name": "payload"
+            "name": "payload",
+            "additionalProperties": true
           }
         ]
       }
