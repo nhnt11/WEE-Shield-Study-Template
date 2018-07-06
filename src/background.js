@@ -1,5 +1,6 @@
 let gEventListener = async function(payload) {
   console.log(payload);
+  //  browser.study.sendTelemetry(payload);
 };
 
 async function init() {
