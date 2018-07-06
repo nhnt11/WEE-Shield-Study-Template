@@ -21,6 +21,10 @@ The template also provides a basic directory structure and build setup (includin
 ## Building
 `$npm run build`
 
+## Basic use
+- Just look at Experiment.jsm. You might not need to mess with anything else. :)
+- If you are confused by the scoping mechanisms and Globals.jsm, read on.
+
 ## Under the hood
 - This template implements a WebExtension Experiment API called `firefoxhooks`, accessible via `browser.firefoxhooks`.
 - The API provides a simple event listener mechanism that allows passing objects from the privileged context to the extension context. See `gEventListener` in `background.js`.
