@@ -27,7 +27,8 @@ The goal is to provide a starting point to engineer real Firefox features in Web
 ## Basic use
 - Just look at `Experiment.jsm`. You might not need to mess with anything else. :)
 - Strings are attempted to be loaded from `locales/${AppConstants.INSTALL_LOCALE}/strings.properties`, falling back to `locales/en-US/strings.properties`.
-- Add strings to `strings.properties` files in `locales/foo-BAR/` and use `getString()` and `getFormattedString()` to work with strings (see code in `Experiment.jsm`).
+- Add strings to `strings.properties` files in `locales/foo-BAR/` and use `getString()` and `getFormattedString()` to work with strings.
+- Send Telemetry using `sendTelemetry()`. Read on for details about how it works.
 - If you are confused by the scoping mechanisms and `Globals.jsm`, read on.
 
 ## Under the hood
