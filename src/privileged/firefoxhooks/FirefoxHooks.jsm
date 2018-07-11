@@ -10,6 +10,14 @@ this.FirefoxHooks = {
 
   stringBundle: null,
   async setupStrings() {
+    /*
+     * We can't just use Services.strings.createBundle(gExtension.getURL("bla")).
+     * This is because bundles whitelist local URI schemes but don't consider
+     * moz-extension:// worthy enough. ;)
+     * The workaround here is to read the file manually and make a data URI
+     * out of it for createBundle - this is allowed.
+     */
+
     let response;
     try {
       response = await fetch(gExtension.getURL(`locales/${AppConstants.INSTALL_LOCALE}/strings.properties`));
