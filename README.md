@@ -6,7 +6,7 @@ The goal is to provide a starting point to engineer real Firefox features in Web
 - Minimal template for studies that require the control and versatility of a bootstrap addon
 - Basic Shield study wrapper boilerplate
 - Painless, packaged l10n
-- Simple mechanism to pass telemetry from the privileged context to the Shield study WebExtension API
+- Simple mechanism to pass telemetry from the privileged context to the Shield WebExtension API
 - Provide a basic directory structure and build setup (including eslint)
 
 ## Requirements
