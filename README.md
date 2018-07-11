@@ -1,11 +1,12 @@
 # WebExtension Experiment Shield Study Template
 This is a spin-off of the Firefox Monitor Shield Study addon (https://github.com/mozilla/blurts-addon).
 
-The idea is to capture a minimal template for studies that require the control and versatility of a bootstrap addon,
-providing the basic shield study wrapper code, packaged l10n, and a simple mechanism to pass telemetry from the privileged context
-to the Shield study WebExtension API.
-
-The template also provides a basic directory structure and build setup (including eslint).
+Features:
+- Minimal template for studies that require the control and versatility of a bootstrap addon
+- Basic shield study wrapper boilerplate
+- Painless, packaged l10n
+- Simple mechanism to pass telemetry from the privileged context to the Shield study WebExtension API
+- Provide a basic directory structure and build setup (including eslint)
 
 ## Requirements
 * Use an unbranded build for testing - see `https://wiki.mozilla.org/Add-ons/Extension_Signing#Unbranded_Builds`
