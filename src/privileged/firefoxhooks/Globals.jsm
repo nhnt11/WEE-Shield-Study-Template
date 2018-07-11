@@ -10,7 +10,7 @@
 
 const GLOBAL = this;
 
-Cu.importGlobalProperties(["fetch", "btoa"]);
+Cu.importGlobalProperties(["fetch", "FileReader"]);
 
 ChromeUtils.defineModuleGetter(this, "AddonManager",
                                "resource://gre/modules/AddonManager.jsm");

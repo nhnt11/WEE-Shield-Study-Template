@@ -33,14 +33,15 @@ this.FirefoxHooks = {
       return;
     }
 
-    let buffer = await response.arrayBuffer();
-    let binary = "";
-    let bytes = new Uint8Array(buffer);
-    let len = bytes.byteLength;
-    for (let i = 0; i < len; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    const dataURI = `data:text/plain;base64,${btoa(binary)}`;
+    let blob = await response.blob();
+    let reader  = new FileReader();
+
+    let dataURI = await new Promise((resolve, reject) => {
+      reader.addEventListener("load", () => {
+        resolve(reader.result);
+      }, { once: true });
+      reader.readAsDataURL(blob);
+    });
 
     this.stringBundle = Services.strings.createBundle(dataURI);
   },
