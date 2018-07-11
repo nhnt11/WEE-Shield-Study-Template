@@ -25,9 +25,9 @@ The goal is to provide a starting point to engineer real Firefox features in Web
 `$npm run build`
 
 ## Basic use
-- Just look at Experiment.jsm. You might not need to mess with anything else. :)
+- Just look at `Experiment.jsm`. You might not need to mess with anything else. :)
 - Strings are attempted to be loaded from `locales/${AppConstants.INSTALL_LOCALE}/strings.properties`, falling back to `locales/en-US/strings.properties`. Add strings to `strings.properties` files in `locales/foo-BAR/` and use `getString()` and `getFormattedString()` to work with strings (see code in `Experiment.jsm`).
-- If you are confused by the scoping mechanisms and Globals.jsm, read on.
+- If you are confused by the scoping mechanisms and `Globals.jsm`, read on.
 
 ## Under the hood
 - This template implements a WebExtension Experiment API called `firefoxhooks`, accessible via `browser.firefoxhooks`.
