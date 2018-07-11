@@ -1,7 +1,7 @@
 # WebExtension Experiment Shield Study Template
 This is a spin-off of the Firefox Monitor Shield Study addon (https://github.com/mozilla/blurts-addon).
 
-Features:
+## Features
 - Minimal template for studies that require the control and versatility of a bootstrap addon
 - Basic shield study wrapper boilerplate
 - Painless, packaged l10n
