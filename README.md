@@ -1,7 +1,8 @@
 # WebExtension Experiment Shield Study Template
 This is a spin-off of the Firefox Monitor Shield Study addon (https://github.com/mozilla/blurts-addon).
+
 The idea is to capture a minimal template for studies that require the control and versatility of a bootstrap addon,
-providing the basic shield study wrapper code and a simple mechanism to pass telemetry from the privileged context
+providing the basic shield study wrapper code, packaged l10n, and a simple mechanism to pass telemetry from the privileged context
 to the Shield study WebExtension API.
 
 The template also provides a basic directory structure and build setup (including eslint).
@@ -23,6 +24,7 @@ The template also provides a basic directory structure and build setup (includin
 
 ## Basic use
 - Just look at Experiment.jsm. You might not need to mess with anything else. :)
+- Strings are attempted to be loaded from `locales/${AppConstants.INSTALL_LOCALE}/strings.properties`, falling back to `locales/en-US/strings.properties`. Add strings to `strings.properties` files in `locales/foo-BAR/` and use `getString()` and `getFormattedString()` to work with strings (see code in `Experiment.jsm`).
 - If you are confused by the scoping mechanisms and Globals.jsm, read on.
 
 ## Under the hood

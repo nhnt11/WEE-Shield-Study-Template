@@ -10,8 +10,12 @@
 
 const GLOBAL = this;
 
+Cu.importGlobalProperties(["fetch", "btoa"]);
+
 ChromeUtils.defineModuleGetter(this, "AddonManager",
                                "resource://gre/modules/AddonManager.jsm");
+ChromeUtils.defineModuleGetter(this, "AppConstants",
+                               "resource://gre/modules/AppConstants.jsm");
 
 Services.scriptloader.loadSubScript(
   gExtension.getURL("privileged/firefoxhooks/FirefoxHooks.jsm"), GLOBAL);
