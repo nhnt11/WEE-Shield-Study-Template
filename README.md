@@ -34,7 +34,7 @@ The goal is to provide a starting point to engineer real Firefox features in Web
 ## Under the hood
 - This template implements a WebExtension Experiment API called `firefoxhooks`, accessible via `browser.firefoxhooks`.
 - The API provides a simple event listener mechanism that allows passing objects from the privileged context to the extension context. Search for `gEventListener` in `background.js`. The event mechanism is used in the template for Telemetry, but can probably easily be repurposed.
-- `Globals.jsm` is the entry point of the shared scope into which Firefox code is to be plugged in. `Globals.jsm` is loaded immediately upon addon installation from the `firefoxhooks API` implementation (`api.js`).
+- `Globals.jsm` is the entry point of the shared scope into which Firefox code is to be plugged. `Globals.jsm` is loaded immediately upon addon installation from the `firefoxhooks API` implementation (`api.js`).
 - `ChromeUtils.import` doesn't seem to work for resources that are packaged in an archive, so `Services.scriptloader.loadSubScript` is substituded everywhere. The imports are done in a way that `Globals.jsm`, `FirefoxHooks.jsm`, and `Experiment.jsm` all share the same global scope.
 - `FirefoxHooks.jsm` implements the WEE API, and tells `Experiment.jsm` when to `init()` and `cleanup()`.
 - Shield studies are not supposed to be re-installed after the add-on is disabled/uninstalled by the user. `FirefoxHooks.jsm` takes care of nuking the addon installation if this happens.
